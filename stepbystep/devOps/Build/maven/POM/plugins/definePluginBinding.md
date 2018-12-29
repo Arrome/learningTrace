@@ -1,0 +1,24 @@
+# 自定义插件绑定
+除了内置绑定，用户可以自己选择将某个插件目标绑定到生命周期的某个阶段。<br>
+例如：maven-source-plugin的jar-no-fork目标能将项目的主代码打包成jar文件，将其绑定到defalut生命周期的verify阶段上（默认绑定到package），在执行完集成测试后和安装构建之前创建源码jar包
+```
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-source-plugin</artifactId>
+      <version>2.1.1</version>
+      <executions>
+        <execution>
+          <id>attach-sources</id>
+          <!--phase删除可不影响，一些插件内部默认绑定阶段-->
+          <phase>verify</phase>
+          <goals>
+            <goal>jar-no-fork</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
+```

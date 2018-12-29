@@ -1,0 +1,19 @@
+# Redis
+* [Redis](redis.md)
+* [redis适用场景及实现](redisApplicationScenarios.md)
+* [redis安装部署](redisInstallDeploy.md)
+* [redis配置信息](redisConfig.md)
+* [redis数据类型](redisDataType.md)
+* [redis操作命令](redisCMD.md)
+* [redis事务](transaction.md)
+* [redis数据库](redisDatabases.md)
+* [redis Lua脚本](redisScript-lua.md)
+* [redis数据持久化](dataPersistence.md)
+* redis集群
+  * [主从复制](clusters/replication.md)
+  * [哨兵](clusters/sentinel.md)
+* 内存
+  * [查看内存信息](memory/info.md)
+  * [内存分配](memory/memoryAllocation.md)
+* [redis优化](optimize.md)
+* [参考](REFERENCE.md)
