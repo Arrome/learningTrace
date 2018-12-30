@@ -34,7 +34,7 @@ WantedBy=multi-user.target
 ```
 #[member]
 #修改为本机对应的名字，etcd02，etcd03
-ETCD_NAME="master"                                          
+ETCD_NAME="etcd01"                                          
 ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
 ETCD_LISTEN_PEER_URLS="http://0.0.0.0:2380"
 ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
@@ -42,7 +42,7 @@ ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
 #[cluster]
 #修改为本机IP
 ETCD_INITIAL_ADVERTISE_PEER_URLS="http://192.168.42.51:2380"    
-ETCD_INITIAL_CLUSTER="master=http://192.168.42.51:2380,node1=http://192.168.42.195:2380,node2=http://192.168.42.192:2380" # 多个节点值都为new   
+ETCD_INITIAL_CLUSTER="etcd01=http://192.168.42.51:2380,node1=http://192.168.42.195:2380,node2=http://192.168.42.192:2380" # 多个节点值都为new   
 ETCD_INITIAL_CLUSTER_STATE="new"
 ETCD_INITIAL_CLUSTER_TOKEN="k8s-etcd-cluster"
 #修改为本机IP

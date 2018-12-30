@@ -1,5 +1,6 @@
 # 网桥驱动
 
+![网桥模式](../../images/bridge.jpg)
 
 |User-defined bridge|Default bridge|
 |-------------------|--------------|
