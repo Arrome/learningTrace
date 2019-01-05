@@ -11,4 +11,14 @@ etcd命令启动参数
 * `--initial-cluster= ` 集群中initial-advertise-peer-urls的合集
 * `--initial-cluster-state=new` 新建集群标志，初始化状态使用new，建立后改为existing
 
-* `--data-dir=/xxx/xxx`
+* `--data-dir=/xxx/xxx`<br>
+
+认证相关参数：<br>
+* `--client-cert-auth`
+* `--cert-file=/etc/etcd/cert/etcd.crt`
+* `--key-file=/etc/etcd/cert/etcd.key`
+* `--trusted-ca-file=/etc/etcd/cert/ca.crt`
+* `--peer-client-cert-auth`
+* `--peer-cert-file=/etc/etcd/cert/etcd.crt`
+* `--peer-key-file=/etc/etcd/cert/etcd.key`
+* `--peer-trusted-ca-file=/etc/etcd/cert/ca.crt`

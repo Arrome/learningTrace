@@ -2,6 +2,8 @@
 
 集群
 ----
+**etc集群最少2个节点才能启动**<br>
+
 方式1： static
 1. 下载etcd二进制文件包`https://github.com/etcd-io/etcd/releases`
 2. 创建目录`mkdir -p /usr/local/kubernetes/{bin,config}`

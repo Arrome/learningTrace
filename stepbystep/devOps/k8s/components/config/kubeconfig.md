@@ -1,6 +1,7 @@
 # kubeconfig
-用于组织关于**集群、用户、命名空间和认证机制**(配置集群访问)的信息
+用于组织关于**集群、用户、命名空间和认证机制**(配置集群访问)的信息<br>
 
+`kubectl config view`<br>
 主要包含：
 1. clusters
 2. contexts（cluster，namespace，user）
@@ -35,7 +36,7 @@ users:
     client-certificate: /path/to/cert
     client-key: /path/to/key
 ```
-user 定义用于k8s集群进行身份认证的客户端凭据。
+user 定义用于k8s集群进行身份认证的客户端凭据。**真正的用户信息是从证书中读取的**
 
 contexts
 --------

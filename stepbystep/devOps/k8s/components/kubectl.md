@@ -6,3 +6,7 @@ kubectl访问集群配置文件：
 3. `--kubeconfig`设置config文件(设置一次，不需要融合)
 
 `kubectl config view` 查看kubeconfig文件配置（可能是多个kubeconfig文件融合后结果）<br>
+
+problem
+--------
+* `kubectl get nodes`发现node是notReady，可能是进程kubelet有问题，`journalctl -f -u kubelet`或者查看进程`systemctl status kubelet`
