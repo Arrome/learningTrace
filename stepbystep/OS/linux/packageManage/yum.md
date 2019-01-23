@@ -50,3 +50,23 @@ yumdownload工具
 
 > 清除缓存（yum配置后最好执行一下，可能找不到）：`yum clean all`<br>
   yum源缓存到本地，加快软件搜索安装：`yum makecache`
+
+Problems:
+---------
+1. 问题：yum [Errno -1] 软件包与预期下载的不符 <br>
+  网上方法未解决：
+```
+rm -f /var/lib/rpm/__*
+rpm --rebuilddb -v -v
+
+yum clean dbcache
+yum clean metadata
+yum clean rpmdb
+yum clean headers
+yum clean all
+
+rm -rf /var/cache/yum/timedhosts.txt
+rm -rf /var/cache/yum/*
+
+yum makecache
+```

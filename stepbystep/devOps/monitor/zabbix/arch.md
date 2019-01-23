@@ -1,5 +1,7 @@
 # 进程工具
 
+![zabbix架构](../../img/zabbix_arch.png)
+
 * zabbix_server : 服务端守护进程，负责处理客户端主动送来及其主动取回的数据，通过web界面呈现
 * zabbix_agentd ：客户端守护进程，负责收集客户端上数据并发送给server或proxy
 * zabbix_proxy  : 类似server，作为中转站，当跨地区，跨机房监控时，收集数据发送到server

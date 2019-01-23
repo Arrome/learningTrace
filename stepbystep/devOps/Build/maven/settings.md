@@ -75,3 +75,6 @@ mirrors
 * `<mirrorOf>external:*</mirrorOf>`:匹配所有远程仓库，使用localhost除外，使用file://协议除外（即匹配所有不在本机上的远程仓库）
 * `<mirrorOf>repo1,repo2</mirrorOf>`匹配仓库repo1,repo2，使用逗号分隔多个远程仓库
 * `<mirrorOf>*,!repo1</mirrorOf>`
+
+profiles
+---------

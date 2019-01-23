@@ -5,13 +5,13 @@
 基础镜像信息
 ----------
 ####FROM
-**格式**： `FROM<image>`或者`FROM<image>:<tag>`<br>
+**格式**： `FROM <image>`或者`FROM <image>:<tag>`<br>
 **注** ：第一条指令必须为FROM指令。若同一个Dockerfile中创建多个镜像时，可以使用多个FROM指令(每个镜像一次)
 
 维护者信息
 ---------
 ####MAINTAINER
-**格式**：`MAINTAINER<name>`
+**格式**：`MAINTAINER <name>`
 
 镜像操作指令
 ----------
@@ -20,7 +20,7 @@
 **注**：
   * `RUN<command>`：将在shell终端运行命令，即/bin/sh -c
   * `RUN["executable","param1","param2"]`：使用exec执行，若指定使用其他终端可使用第二种方式实现：例如`RUN["/bin/bash","-c","echo hello"]`
-> 每条RUN指令将在当前镜像基础上执行指定命令，并提交为新的镜像（**创建新的镜像层，经常用于安装软件包**）。命令较长时可以使用`\`来换行
+> **构建容器时执行**，每条RUN指令将在当前镜像基础上执行指定命令，并提交为新的镜像（**创建新的镜像层，经常用于安装软件包**）。命令较长时可以使用`\`来换行
 
 容器启动指令
 ---------
@@ -37,7 +37,7 @@
 **格式**：`EXPOSE<port>[<port>...]`
 
 ####ENV
-**格式**：`ENV<key><value>`
+**格式**：`ENV <key> <value>`或`ENV <key>=<value> ...`
 > **指定一个环境变量，会被后续RUN指令使用，并在容器运行时保持**<br>
 
 ####ADD
@@ -75,6 +75,16 @@
 > 配置所创建的镜像作为其他新创建镜像的基础镜像时，所执行的操作指令<br>
 > 新创建镜像，Dockerfile中使用FROM 会自动执行基础镜像ONBUILD指令内容，等同于后面加了指令。<br>
 > **使用ONBUILD指令的镜像，推荐在标签注明**.例如 ruby:1.9-onbuild
+
+####LABEL
+**格式**：`LABEL <key>=<value> <key>=<value> ...`
+> 可以有多个LABEL，但不建议。建议一行。
+> **注意**：LABEL会继承基础镜像的LABEL，如key相同则value覆盖
+
+####ARG
+**格式**：`ARG <name>[=<default value>]`
+> 含义：设置变量，docker build创建镜像时使用`--build-arg <key>=<value>`指定参数，<br>
+> 也可定义时指定参数默认值，当创建镜像时没有指定参数值，将会使用默认值
 
 创建镜像
 -------------

@@ -35,9 +35,7 @@ SendEnv XMODIFIERS
 # Accept locale-related environment variables
 # AcceptEnv 指定客户端发送的哪些环境变量将会被传递到会话环境中。
 #[注意]只有SSH-2协议支持环境变量的传递。指令的值是空格分隔的变量名列表(其中可以使用'*'和'?'作为通配符)。也可以使用多个 AcceptEnv 达到同样的目的。
-#需要注意的是，有些环境变量可能会被用于绕过禁止用户使用的环境变量.由于这个原因，该指令应当小心使用。默认是不传递任何环境变量。
-
-AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+#需要注意的是，有些环境变量可能会被用于绕过禁止用户使用的环境变量.由于这个原因，该指令应当小心使用。默认是不传递任何环境变量。 LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
 AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
 AcceptEnv LC_IDENTIFICATION LC_ALL
 ```

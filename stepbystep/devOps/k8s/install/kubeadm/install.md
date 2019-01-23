@@ -25,6 +25,7 @@
 `systemctl enable kubelet.service`<br>
 
 2. 准备
+  * 关闭防火墙firewalld
   * 安装docker
   * 关闭swap
 3. 加入集群
