@@ -4,7 +4,7 @@ docker跨主机访问
 ----------
 作为docker的跨主机网络解决方案，安装使用版本V2.6 <br>
 参考：`https://docs.projectcalico.org/v2.6/getting-started/docker/installation/manual`<br>
-1. 下载calicoctl，`wget -O /usr/local/bin/calicoctl https://github.com/projectcalico/calicoctl/releases/download/v1.6.5/calicoctl`,并改权限`chmod +x /usr/local/bin/calicoctl`
+1. 下载calicoctl,并改权限`wget -O /usr/local/bin/calicoctl https://github.com/projectcalico/calicoctl/releases/download/v1.6.5/calicoctl && chmod +x /usr/local/bin/calicoctl`
 2. 配置calico（etcd数据库）：默认配置文件：`/etc/calico/calicoctl.cfg`
 ```
 apiVersion: v1

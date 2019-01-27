@@ -10,23 +10,10 @@ yum源配置（/etc/repos.d）
 * CentOS-Sources.repo
 * CentOS-Vault.repo
 
-EPEL（extra packages for enterprise linux）
---------------------
-Fedora小组维护的软件仓库，提供RHEL/CentOS默认不提供的软件包。
-
-安装EPEL，省配置
----------
-下载CentOS版本对应的EPEl版本并安装 :`rpm -ivh epel-release*`
-
-直接配置yum源epel
--------
-`wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo`
 1. yum配置文件:/etc/yum.conf
 2. yum源：/etc/yum.repos.d
 
-配置本地yum源，无外网情况下
----------------------
-**httpd构建本地镜像站**：
+
 
 > `yum repolist` 查看yum源
 
@@ -46,6 +33,7 @@ yum升级
 
 yumdownload工具
 --------------
+`yum install --downloadonly --downloadDir=. xxx`
 
 
 > 清除缓存（yum配置后最好执行一下，可能找不到）：`yum clean all`<br>
@@ -69,4 +57,9 @@ rm -rf /var/cache/yum/timedhosts.txt
 rm -rf /var/cache/yum/*
 
 yum makecache
+```
+2. 问题：`/usr/bin/applydeltarpm not installed`
+```
+yum provides '*/applydeltarpm'
+yum install deltarpm
 ```

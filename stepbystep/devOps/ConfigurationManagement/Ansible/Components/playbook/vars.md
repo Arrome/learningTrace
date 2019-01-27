@@ -13,8 +13,8 @@
   ```
 2. 通过/etc/ansible下的文件定义主机以及主机组变量
   默认使用yum安装Ansible的配置文件在/etc/ansible目录下，在此目录下新建host_vars和group_vars目录针对主机和主机组定义变量
-> 注意：group_vars目录下新建文件，名称为主机组名，文件内容yaml语法，`key： value`方式<br>
-host_vars目录下新建文件，名称为主机名，文件内容yaml语法，`key： value`方式<br>
+> 注意：group_vars目录下新建文件，名称为主机组名，文件内容yaml语法，`key: value`方式<br>
+host_vars目录下新建文件，名称为主机名，文件内容yaml语法，`key: value`方式<br>
 
 3. 通过ansible-playbook命令行传入定义变量，默认传进去的变量都是全局变量。也支持同时传入多个变量，还支持指定文件的方式传入，文件内容支持YAML和JSON两种格式
 ```
