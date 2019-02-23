@@ -16,3 +16,15 @@
 ------------------
 1. `sysctl net.ipv4.conf.all.forwarding=1`配置linux内核允许IP转发
 2. `sudo iptables -P FORWARD ACCEPT`改变iptables FORWARD策略DROP为ACCEPT
+
+
+访问过程
+---------
+* 外界访问容器
+  1. 外界访问宿主机IP+port
+  2. 宿主机接收请求后，由DNAT规则，将请求的目的IP和port进行转换，转换为容器IP+port
+  3. 请求发送给veth pair，发送到容器eth0
+* 容器访问外界
+  1. 请求报文源IP地址为容器IP地址，linux内核会自动为进程分配可用源端口，发送到eth0对端，到达网桥。
+  2. 网桥开启数据报转发功能，将请求发送到宿主机eth0
+  3. 宿主机使用SNAT对请求进行源地址IP转换，转换为宿主机eth0地址

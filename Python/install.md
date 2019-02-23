@@ -17,12 +17,14 @@
   eval "$(pyenv init -)"
   ```
   `pyenv install --list` 查看支持版本
-
+  `pyenv local xxx`
 
 virtualenv工具
 -------------
 **Python3.3以上的版本通过venv模块原生支持虚拟环境，可以代替Python之前的virtualenv。**<br>
 功能：**将一个目录建立为一个虚拟的python环境**，用户可以建立多个虚拟环境，环境之间相互独立<br>
+
+安装pip：`yum -y install python-pip`
 
 pip安装方式:`pip install virtualenv`<br>
 创建虚拟环境：`virtualenv xxx_env --python=python3`<br>

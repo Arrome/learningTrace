@@ -14,7 +14,7 @@
 * [字符集](characterSet.md)
 * [数据类型对比和选择](datatype.md)
 
-* [用户和授权](userAndPrivileges.md)
+* [用户和授权](userRolePrivileges.md)
 
 * [命令查看帮助文档](help.md)
 * [常用命令记录](commCMD.md)

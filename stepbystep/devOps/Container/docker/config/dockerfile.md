@@ -34,6 +34,19 @@
 > **如果用户启动容器时`docker run`，指定了运行命令，则会覆盖掉CMD指定的命令**<br>
 > 把可能需要变动的参数写到CMD里
 
+####ENTRYPOINT
+**格式**：
+  * `ENTRYPOINT ["executable","param1","param2"]`(推荐)
+  * `ENTRYPOINT command param1 param2`(shell中执行，`docker run`或CMD参数无法传递过来)
+> **(配置容器启动时执行的命令)，且不可被 docker run 提供的参数覆盖**<br>
+> **每个Dockerfile中只能有一个ENTRYPOINT，当指定多个时，只有最后一个生效**<br>
+> **`docker run`运行容器时指定的参数都会被传递给ENTRYPOINT，且会覆盖CMD命令指定的参数**<br>
+> `docker run --entrypoint` 重写ENTRYPOINT入口点
+
+> **ENTRYPOINT为容器启动的入口点，CMD为其提供默认参数，docker run提供参数则覆盖CMD**
+> **无 ENTRYPOINT，CMD作为默认命令，docker run提供命令则覆盖CMD**
+> **CMD为ENTRYPOINT提供默认参数是基于镜像层次，同一镜像层次下有效，可不同dockerfile中
+
 ####EXPOSE
 **格式**：`EXPOSE <port>[<port>...]`
 
@@ -50,15 +63,6 @@
 **格式**：`COPY <src> <dest>`
 > 复制本地主机的<src>(为Dockerfile所在目录的相对路径，文件或目录)到容器中的<dest>.目标路径不存在时，会自动创建
 > **当使用本地目录为源目录时，推荐使用COPY**
-
-####ENTRYPOINT
-**格式**：
-  * `ENTRYPOINT ["executable","param1","param2"]`(推荐)
-  * `ENTRYPOINT command param1 param2`(shell中执行，`docker run`或CMD参数无法传递过来)
-> **(配置容器启动时执行的命令)，且不可被 docker run 提供的参数覆盖**<br>
-> **每个Dockerfile中只能有一个ENTRYPOINT，当指定多个时，只有最后一个生效**<br>
-> **`docker run`运行容器时指定的参数都会被传递给ENTRYPOINT，且会覆盖CMD命令指定的参数**<br>
-> `docker run --entrypoint` 重写ENTRYPOINT入口点
 
 ####VOLUME
 **格式**：`VOLUME["/data"]`

@@ -24,3 +24,7 @@ docker tag docker.io/coredns/coredns:1.1.3  k8s.gcr.io/coredns:1.1.3
 
 问题：kubelet报错`Unable to update cni config: No networks found in /etc/cni/net.d`
 解决：没有下载flannel镜像，参考官网https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/下载
+
+问题：安装中kubelet-check报错`error execution phase upload-config/kubelet: Error writing Crisocket information for the control-plane node: timed out waiting for the condition`
+分析：查看kubelet日志`journalctl -f -u kubelet`显示尝试注册node节点，未认证
+解决：待解决

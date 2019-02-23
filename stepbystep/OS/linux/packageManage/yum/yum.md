@@ -33,7 +33,7 @@ yum升级
 
 yumdownload工具
 --------------
-`yum install --downloadonly --downloadDir=. xxx`
+`yum install --downloadonly --downloaddir=. xxx`
 
 
 > 清除缓存（yum配置后最好执行一下，可能找不到）：`yum clean all`<br>

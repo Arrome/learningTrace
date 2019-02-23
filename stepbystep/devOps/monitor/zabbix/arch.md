@@ -4,7 +4,7 @@
 
 * zabbix_server : 服务端守护进程，负责处理客户端主动送来及其主动取回的数据，通过web界面呈现
 * zabbix_agentd ：客户端守护进程，负责收集客户端上数据并发送给server或proxy
-* zabbix_proxy  : 类似server，作为中转站，当跨地区，跨机房监控时，收集数据发送到server
+* zabbix_proxy  : 类似server，作为中转站，当跨地区，跨机房监控时，收集数据发送到server(减轻server访问压力)
 * zabbix_java_gateway : 类似agentd，只用于java应用程序监控（只能主动获取数据，agent active）
 
 * zabbix_get 服务端工具，用于手动收集客户端监控数据，可用于监控测试或排错

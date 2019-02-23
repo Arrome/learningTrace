@@ -1,4 +1,7 @@
 #!/bin/bash
+
+## github有提供安装脚本/步骤 https://github.com/etcd-io/etcd/releases
+
 usage(){
   echo "usage: $0 FILE_NAME_ETCD_TAR_GZ"
   echo "       $0 etcd-v3.3.11-linux-arm64.tar.gz"

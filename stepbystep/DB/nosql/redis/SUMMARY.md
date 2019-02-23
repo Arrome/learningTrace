@@ -1,8 +1,10 @@
 # Redis
 * [Redis](redis.md)
 * [redis适用场景及实现](redisApplicationScenarios.md)
-* [redis安装部署](redisInstallDeploy.md)
-* [redis配置信息](redisConfig.md)
+* redis安装
+  * [redis安装部署](install/redisInstallDeploy.md)
+* redis配置
+  * [redis配置信息](config/redisConfig.md)
 * [redis数据类型](redisDataType.md)
 * [redis操作命令](redisCMD.md)
 * [redis事务](transaction.md)

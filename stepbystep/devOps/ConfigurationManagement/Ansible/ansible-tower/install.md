@@ -2,7 +2,7 @@
 
 安装系统要求：（内存>=2G,否则可能安装失败）
 
-安装包下载地址：`https://releases.ansible.com/ansible-tower/setup`
+安装包下载地址：`https://releases.ansible.com/ansible-tower`
 
 1. 下载`wget https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-3.4.0-2.tar.gz`
 2. 解压
