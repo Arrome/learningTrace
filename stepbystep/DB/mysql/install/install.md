@@ -3,6 +3,11 @@
 1. yum方式安装
 2. 根据源码改造制作rpm
 3. 编译安装方式(编译C)，configurate，cmake
+  ```
+  指定默认字符集：
+  --DDEFAULT_CHARSET=utf8 \
+  --DDEFAULT_COLLATION=utf8_general_ci \
+  ```
 4. 解压安装方式
 
 

@@ -1,6 +1,4 @@
-# 命令
-
-* help命令查看帮助 
+# prompt
 
 * 登录界面提示符修改：
   临时生效：`prompt \u@fireworm \r:\m:\s->`

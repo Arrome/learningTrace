@@ -18,5 +18,5 @@ make && make install
 `ln -s /etc/rc.d/init.d/keepalived.init /etc/rc.d/rc3.d/S99keepalived`
 * Debian:<br>
 `ln -s /etc/init.d/keepalived.init /etc/rc2.d/S99keepalived`
-或者直接在/etc/rc.local中配置keepalived -D -f /usr/local/keepalived-1.2.15/etc/keepalived/keepalived.conf
+或者直接在/etc/rc.local中配置`keepalived -D -f /usr/local/keepalived-1.2.15/etc/keepalived/keepalived.conf`
 > **注意**：启动keepalived 如果keepalived.conf配置不合实际会导致启动不起来。`journalctl -xe`命令查看(CentOS-7才有的工具),通过命令`tail -f /var/log/messages | grep XXX`查看输出日志信息

@@ -24,7 +24,8 @@
   1. 外界访问宿主机IP+port
   2. 宿主机接收请求后，由DNAT规则，将请求的目的IP和port进行转换，转换为容器IP+port
   3. 请求发送给veth pair，发送到容器eth0
+  iptables-save命令查看：`-A DOCKER ! -i docker0 -p tcp -m tcp --dport 3307 -j DNAT --to-destination 172.17.0.2:3306`
 * 容器访问外界
-  1. 请求报文源IP地址为容器IP地址，linux内核会自动为进程分配可用源端口，发送到eth0对端，到达网桥。
-  2. 网桥开启数据报转发功能，将请求发送到宿主机eth0
-  3. 宿主机使用SNAT对请求进行源地址IP转换，转换为宿主机eth0地址
+  1. IP包首先从容器发往自己的默认网关docker0，包到达docker0后，然后查询主机路由表arp，发现包应该从主机eth0发出<br>  
+  2. 接着包会转发给eth0，并从eth0发出。根据iptables规则，对包做SNAT转换，源地址替换为eth0地址<br>
+    iptables-save命令查看：`-A POSTROUTING -s 172.17.0.0/16 ! -o docker0 -j MASQUERADE`
