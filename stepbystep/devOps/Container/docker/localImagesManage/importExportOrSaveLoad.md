@@ -7,7 +7,7 @@
 两种方法不可混用
 1. save & load
 
-`docker save ubuntu:load>/root/ubuntu.tar`<br>
+`docker save ubuntu:load > /root/ubuntu.tar`<br>
 或者<br>
 `docker save -o /root/ubuntu.tar ubuntu:load`<br>
 -o 表示输出到的镜像文件
@@ -16,7 +16,7 @@
 
 2. export & import
 
-`docker export a404c6c174a2>mysql.tar`<br>
+`docker export a404c6c174a2 > mysql.tar`<br>
 或<br>
 `docker export -o mysql.tar a404c6c174a2`<br>
 -o 表示输出到的镜像文件

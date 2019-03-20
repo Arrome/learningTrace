@@ -8,6 +8,8 @@
 查看建表语句：`show create table xxx;`<br>
 
 
-
+variables
+---------
+my.cnf配置参数查看：
 `show variables\G`
 `show [global] status;`  -------- `set global xxx = xxx`

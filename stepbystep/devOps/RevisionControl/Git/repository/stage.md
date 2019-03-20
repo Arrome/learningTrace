@@ -9,7 +9,7 @@
 
 `git diff` 本地工作区和暂存区对比<br>
 `git diff HEAD` 本地工作区和版本库对比<br>
-`git diff --cached`或`git diff --staged` 暂存区和版本库对比
+`git diff --cached`或`git diff --staged` 暂存区和版本库对比(即暂存区内容)
 
 对象库
 ------------
@@ -21,6 +21,8 @@
 `git cat-file -t ID`
 -t 查看对象类型 和 -p 查看对象内容
 
-Blob对象
------
-保存文件内容
+#### Blob对象
+保存文件内容（以blob对象形式，按字节存储）
+
+#### Tree对象
+包含文件和子目录，其中每个条目都被分配相应的访问权限，类型（blob/tree）以及由该文件内容、该文件或目录名称生成的散列值

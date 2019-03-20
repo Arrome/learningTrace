@@ -1,6 +1,6 @@
 ```
 #!/usr/bin/env groovy
-
+//使用不可序列化的对象的方法时
 @NonCPS
 def method(){
 

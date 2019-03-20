@@ -10,7 +10,8 @@
     6. serverB接收到字符串会跟先前生成的字符串进行对比，如果一致，允许免密登陆
 
 命令：
-1. `ssh-keygen` 为“ssh”生成、管理和转换认证密钥，它支持RSA和DSA两种认证密钥
+1. `ssh-keygen` 为“ssh”生成、管理和转换认证密钥，它支持RSA和DSA两种认证密钥<br>
+  `-f`参数指定生成密钥文件名<br>
 2. `ssh-copy-id [-i [identity_file]] [user@]machine` 本地主机公钥复制到远程主机authorized_keys文件上，会给远程主机用户主目录，~/.ssh,~/.ssh/authorized_keys设置合适的权限<br>
 > 1.主目录权限不能有用户组写权限 2. .ssh 目录700 3. .ssh/authorized_keys文件600
 

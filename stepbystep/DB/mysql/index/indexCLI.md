@@ -19,7 +19,7 @@ create table student(
   index index_name(name)
 );
 
---唯一索引
+-- 唯一索引
 create table student(
   id int(4) not null auto_increment,
   name char(20) not null,

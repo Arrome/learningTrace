@@ -54,6 +54,7 @@ proxies
 
 mirrors
 -----------
+表示repository之间的关系<br>
  ```
  <!--为仓库列表配置的下载镜像列表。高级设置请参阅镜像设置页面 -->
  <mirrors>
@@ -78,3 +79,31 @@ mirrors
 
 profiles
 ---------
+根据环境参数来调整构建配置列表。settings.xml中的profile元素是pom.xml中profile元素的裁剪版本。<br>
+如果settings中的profile被激活，它的值会覆盖任何其他定义在POM中或者profile.xml中带有相同id的profile<br>
+`mvn -P profile.id`
+```
+<!-- 这个默认配置决定了我们的Maven服务器开启snapshot配置，否则不能下载SNAPSHOTS的相关资源 -->
+<profiles>
+   <profile>
+     <activation>
+       <!-- profile默认是否激活的标识 -->
+       <activeByDefault>true</activeByDefault>
+     </activation>
+     <repositories>
+       <repository>
+         <id>repository_name</id>
+         <name>Nexus Public Repository</name>
+         <url>http://nexus_ip:8081/repository/maven-public/</url>
+         <releases>
+           <enabled>true</enabled>
+         </releases>
+         <snapshots>
+           <enabled>true</enabled>
+           <updatePolicy>always</updatePolicy>
+         </snapshots>
+       </repository>
+     </repositories>
+   </profile>
+</profiles>
+```

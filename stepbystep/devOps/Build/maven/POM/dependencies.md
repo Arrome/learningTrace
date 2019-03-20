@@ -27,7 +27,7 @@ scope
 * provided  对编译、测试classpath有效，典型例子：servlet-api
 * runtime   对于测试、运行classpath有效,典型例子:JDBC驱动接口
 * system    对编译、测试classpath有效，使用system范围依赖，必须通过systemPath元素显式指定依赖文件路径。此类依赖不是通过Maven仓库解析，而且往往与本机系统绑定
-* import    不会对三种classpath产生实际的影响
+* import    导入依赖范围，(只能用在dependencyManagement里，仅用于type=pom的dependency)不会对三种classpath产生实际的影响
 
 传递依赖
 ------

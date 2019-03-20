@@ -27,3 +27,4 @@
 -----------
 * core.quotepath : 默认true，diff命令差异化对比，中文文件乱码，修改为false（支持UTF-8编码）
 * core.sparsecheckout true ：设置允许克隆子目录
+* diff.renames true : 重命名检查，Git会自行显示出被重命名或移动的文件

@@ -6,7 +6,7 @@ http://updates.jenkins-ci.org/download/plugins/
 * 普通的参数类型（布尔型、字符串型、多行文本型、选择型和文件型）
 * Active Choices（级联参数）
 * hidden-parameter（隐藏参数）
-* extended-choice-parameter & extensible-choice-parameter
+* extended-choice-parameter & extensible-choice-parameter (可定义动态参数)
 * validating-string-parameter
 * nodelabelparameter（增加了一个新的参数类型，Node 和 Label，从而使用户通过参数可以选择项目构建运行的节点）
 

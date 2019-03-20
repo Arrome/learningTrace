@@ -10,10 +10,16 @@
 
 用户配置文件~/.ssh/config
 ---------------------
-管理ssh会话，简化工作流程
+管理多个ssh会话，简化工作流程
 ```
 StrictHostKeyChecking no  ##ssh连接时将自动进行添加，可免输入yes进行known_hosts添加
 UserKnownHostsFile /dev/null ##免除服务器ip更新，known_hosts未更新导致冲突（时时删除known_hosts文件）
+
+Host xxx         ##别名
+  HostName xxx     ##主机名
+  Port xxx         ##端口
+  User xxx         ##用户名
+  IdentityFile xxx ##密钥文件的路径,未配置默认应用id_rsa
 ```
 
 系统配置文件(ssh_config和sshd_config)

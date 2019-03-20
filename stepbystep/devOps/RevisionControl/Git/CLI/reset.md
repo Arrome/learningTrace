@@ -6,3 +6,5 @@
 `git reset --hard HEAD^` 回退到上一次版本
 `git reset --hard 9e8a761` 回退到更远的一次提交
 `git reset --hard master@{2}` 重置master为两次改变之前的值
+
+`git reset --merge` 取消合并
