@@ -22,7 +22,7 @@ Host xxx         ##别名
   IdentityFile xxx ##密钥文件的路径,未配置默认应用id_rsa
 ```
 
-系统配置文件(ssh_config和sshd_config)
+系统配置文件(/etc/ssh/ssh_config和/etc/ssh/sshd_config)
 ---------------
 客户端和服务器根据配置文件参数改变其运行方式
 
@@ -44,6 +44,8 @@ SendEnv XMODIFIERS
 #需要注意的是，有些环境变量可能会被用于绕过禁止用户使用的环境变量.由于这个原因，该指令应当小心使用。默认是不传递任何环境变量。 LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
 AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
 AcceptEnv LC_IDENTIFICATION LC_ALL
+
+MaxSessions 10  ##
 ```
 
 
