@@ -25,7 +25,7 @@ userdel 命令默认只删除/etc/passwd文件中用户信息，而不会删除�
 
 修改用户
 ---------
-1. usermod 能修改/etc/passwd文件中大部分字段，-L选项锁定账户使用户无法登陆（无需删除账户和数据），-U解除锁定恢复使用
-2. passwd 修改密码，-e强制用户下次登陆时修改密码<br>
+1. `usermod` 能修改/etc/passwd文件中大部分字段，-L选项锁定账户使用户无法登陆（无需删除账户和数据），-U解除锁定恢复使用
+2. `passwd` 修改密码，-e强制用户下次登陆时修改密码<br>
    chpasswd 为大量用户修改密码，可以从标准输入自动读取登陆名和密码对（冒号分割），对密码加密。例如：`chpasswd < users.txt`
-3. chfn,chsh,chage chfn命令在/etc/passwd文件备注字段存储信息，chsh命令修改默认用户的登陆shell，chage命令管理账户有效期
+3. `chfn,chsh,chage chfn`命令在/etc/passwd文件备注字段存储信息，chsh命令修改默认用户的登陆shell，chage命令管理账户有效期

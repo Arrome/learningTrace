@@ -3,7 +3,7 @@
 **下载地址**：http://www.keepalived.org/software/
 
 1. 准备安装条件(编译需要一个编译器，OpenSSL，Netlink Library.可选Net-SNMP)<br>
-* RHEL/CentOS:`yum install curl gcc openssl-devel libnl3-devel net-snmp-devel`<br>
+* RHEL/CentOS:`yum install -y curl gcc openssl-devel libnl3-devel net-snmp-devel`<br>
 * Debian:`apt-get install curl gcc libssl-dev libnl-3-dev libnl-genl-3-dev libsnmp-dev`
 2. 下载，解压，编译，安装
 ```

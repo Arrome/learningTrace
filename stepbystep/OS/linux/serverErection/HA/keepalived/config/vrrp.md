@@ -29,7 +29,7 @@ vrrp_sync_group
 ---------------
 不使用sync group的话，如果机器(route)有两个网段，一个内网一个外网，每个网段开启一个VRRP实例，假设VRRP设置为检查内网，那么当外网出现问题时，VRRPD认为自己依然健康，不会发送Master和Backup的切换，从而导致问题。
 ```
-作用：确定失败切换（FailOver）包含的路由实例个数。
+#作用：确定失败切换（FailOver）包含的路由实例个数。
 vrrp_sync_group VG_1{ #监控多个网段的实例
 group {
 　　　　VI_1 #实例名
@@ -46,9 +46,10 @@ smtp_alert #使用global_defs中提供的邮件地址和smtp服务器发送邮�
 
 vrrp_instance
 -------------
+定义虚拟路由
 ```
 vrrp_instance VI_1 {
-    state BACKUP #指定那个为master，那个为backup，如果设置了nopreempt这个值不起作用，主备考priority决定
+    state BACKUP #指定那个为master，那个为backup，如果设置了nopreempt这个值不起作用，主备靠priority决定
     interface eth0 #设置实例绑定的网卡
     dont_track_primary #忽略vrrp的interface错误（默认不设置）
     track_interface{ #设置额外的监控，里面那个网卡出现问题都会切换

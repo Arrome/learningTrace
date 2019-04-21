@@ -8,7 +8,7 @@
 
 安装nginx
 ----------
-下载地址：http://nginx.org/download/ <br>
+下载地址：http://nginx.org<br>
 ```
 ./configure --prefix=/usr/local/nginx \
 --sbin-path=/usr/local/nginx/nginx \
@@ -19,6 +19,8 @@
 --with-zlib=/opt/app/openet/oetal1/chenhe/zlib-1.2.8 \
 --with-openssl=/opt/app/openet/oetal1/chenhe/openssl-1.0.1t
 
-make
-make install
+make && make install
 ```
+* `--with-pcre` 设置pcre库的源码路径，yum安装可自动找到库文件
+* `--with-zlib=PATH` 指定zlib源码解压目录
+* `--with-http_ssl_module` 使用https协议模块，默认模块没有被构建（前提openssl openssl-devel已安装）

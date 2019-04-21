@@ -1,0 +1,45 @@
+- name: Configure webserver with nginx
+  hosts: webservers-notls
+  become: true
+  tasks:
+    - name: install epel repo
+      yum_repository:
+        name: epel
+        description: EPEL YUM REPO
+        file: epel
+        baseurl: http://mirrors.aliyun.com/epel/7/$basearch
+        gpgcheck: no
+        enabled: yes
+        state: present
+        
+    - name: install nginx
+      yum: 
+        name: nginx
+        update_cache: yes
+
+    - name: copy nginx config file
+      copy: 
+        src: files/nginx_server.conf 
+        dest: /etc/nginx/sites-available/default_server.conf
+
+    - name: enable configuration
+      file:
+        dest: /etc/nginx/sites-enabled/default_server.conf
+        src: /etc/nginx/sites-available/default_server.conf
+        state: link
+
+    - name: copy nginx config file
+      copy: 
+        src: files/nginx.conf 
+        dest: /etc/nginx/nginx.conf
+        
+    - name: copy index.html
+      template: 
+        src: templates/index.html.j2 
+        dest: /usr/share/nginx/html/index.html 
+        mode: 0644
+
+    - name: restart nginx
+      service: 
+        name: nginx 
+        state: restarted

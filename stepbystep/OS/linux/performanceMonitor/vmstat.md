@@ -1,6 +1,6 @@
 # vmstat
 
-*vmstat
+vmstat
 ----------
 显示所有虚拟处理器的信息（CPU，内存，IO ...）<br>
 

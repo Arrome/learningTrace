@@ -28,12 +28,16 @@ yum源配置（/etc/repos.d）
 
 yum升级
 -------
-`yum -y update` 升级软件包和系统内核
+`yum -y update` 升级软件包和系统内核<br>
 `yum -y upgrade` 只升级软件包
 
-yumdownload工具
+yumdownloader工具
 --------------
-`yum install --downloadonly --downloaddir=. xxx`
+需要安装yum-utils工具
+`yumdownloader xxx`<br>
+或者<br>
+`yum install --downloadonly --downloaddir=. xxx`<br>
+
 
 
 > 清除缓存（yum配置后最好执行一下，可能找不到）：`yum clean all`<br>

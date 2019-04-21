@@ -7,11 +7,12 @@
 ------------------
     1、在/etc/docker目录下新增一个daemon.json文件
     daemon.json文件内容为：
-    {"registry-mirrors": ["https://registry.docker-cn.com"],"live-restore": true}
+    {"registry-mirrors": ["https://registry.docker-cn.com","https://w5e0yetj.mirror.aliyuncs.com"],"live-restore": true}
 
     > `"live-restore": true` docker1.12后支持，避免了docker服务异常而造成容器退出（即关闭docker daemon ，而不关闭容器）服务恢复后，容器也可以再被服务抓到并可管理
 
     注：docker官方中国区仓库 https://registry.docker-cn.com
+        aliyun镜像仓库 https://w5e0yetj.mirror.aliyuncs.com（参考网址：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors）
 
     2、重启docker，执行命令 service docker restart
 

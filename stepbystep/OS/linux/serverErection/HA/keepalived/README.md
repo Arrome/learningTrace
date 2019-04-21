@@ -5,6 +5,9 @@
 **主要提供功能**：
 1. 负载均衡：依赖Linux 虚拟服务内核模块(ipvs)
 2. 高可用功能：通过VRRP协议(虚拟路由冗余协议Virtual Redundancy Routing Protocol)实现多台机器间故障转移服务
+  * 网络层：通过ICMP协议向服务器集群中每个节点发送一个ICMP数据包
+  * 传输层：探测TCP/UDP端口有没有数据响应和数据返回
+  * 应用层：检测程序或服务是否正常
 
 **keepalived软件设计**：
 ![keepalived软件设计](../../img/keepalived_software_design.png)

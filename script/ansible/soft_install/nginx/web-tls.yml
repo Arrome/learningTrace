@@ -1,0 +1,86 @@
+- name: Configure webserver with nginx and tls
+  hosts: webservers-tls
+  become: yes
+  become_method: su
+#  ignore_errors: yes
+  vars:
+    key_file: /etc/nginx/ssl/nginx.key
+    cert_file: /etc/nginx/ssl/nginx.crt
+    conf_file: /etc/nginx/sites-available/default.conf
+    server_name: localhost
+  tasks:
+    - name: install epel repo
+      yum_repository:
+        name: epel
+        description: EPEL YUM REPO
+        file: epel
+        baseurl: http://mirrors.aliyun.com/epel/7/$basearch
+        gpgcheck: no
+        enabled: yes
+        state: present
+
+    - name: install nginx
+      yum: 
+        name: nginx
+        update_cache: yes
+
+    - name: create directories for ssl certificates
+      file:
+        path: /etc/nginx/ssl
+        state: directory
+
+    - name: copy TLS key
+      copy: 
+        src: files/nginx.key
+        dest: "{{ key_file }}"
+        owner: root
+        mode: 0600
+      notify: restart nginx
+
+    - name: copy TLS certificate
+      copy:
+        src: files/nginx.crt
+        dest: "{{ cert_file }}"
+      notify: restart nginx
+
+    - name: make directory
+      file:
+        dest: /etc/nginx/sites-available
+        state: directory
+
+    - name: make directory
+      file:
+        dest: /etc/nginx/sites-enabled
+        state: directory
+
+    - name: copy nginx config file
+      template: 
+        src: templates/nginx.conf.j2 
+        dest: "{{ conf_file }}"
+      notify: restart nginx
+    
+    - name: recover nginx.conf
+      copy:
+        src: files/nginx.conf
+        dest: /etc/nginx/nginx.conf
+      notify: restart nginx
+
+    - name: enable configuration
+      file:
+        dest: /etc/nginx/sites-enabled/default.conf
+        src: "{{ conf_file }}"
+        state: link
+      notify: restart nginx
+
+    - name: copy index.html
+      template: 
+        src: templates/index.html.j2 
+        dest: /usr/share/nginx/html/index.html 
+        mode: 0644
+
+  handlers:
+    - name: restart nginx
+      service: 
+        name: nginx 
+        enabled: yes
+        state: restarted

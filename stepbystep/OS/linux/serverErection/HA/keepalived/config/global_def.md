@@ -8,6 +8,6 @@ global_defs {
    notification_email_from Alexandre.Cassen@firewall.loc #指定发件人
    smtp_server localhost #指定smtp服务器地址
    smtp_connect_timeout 30 #指定smtp连接超时时间
-   router_id LVS_DEVEL #运行keepalived机器的一个标识
+   router_id LVS_DEVEL #运行keepalived机器的一个标识(即为标识本节点的字符串)
 }
 ```
