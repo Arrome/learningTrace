@@ -9,4 +9,4 @@
 -----------
 1. Vim,`:set fileencoding=utf-8`
 2. iconv命令, `iconv -f GBK -t UTF-8 file1 -o file2` UTF-8编码文件转GBK编码
-3. enconv命令，`enconv -Ｌ zh_CN -x UTF-8 filename` GBK编码文件转换成UTF-8编码
+3. enconv命令，`enconv -L zh_CN -x UTF-8 filename` GBK编码文件转换成UTF-8编码

@@ -2,8 +2,10 @@
 
 设置系统环境变量命令
 --------
-* set 设置各种shell选项或列出shell变量
-* export 仅限于该次登录，当前shell有效
+* declare 声明变量和修改变量属性，同typeset，set
+* set 设置各种shell选项（可根据不同需求来设置当前所使用shell的执行方式）或列出shell变量（用户变量和关键字变量）
+* export 仅限于该次登录，当前shell有效（环境变量）
+* env 用于显示环境变量(环境变量)
 
 
 IFS

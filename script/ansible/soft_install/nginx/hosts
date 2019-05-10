@@ -6,7 +6,7 @@ webservers-tls
 WS01 ansible_ssh_host=192.168.183.145 ansible_ssh_port=22
 
 [webservers-tls]
-WS02 ansible_ssh_host=192.168.183.146 ansible_ssh_port=22 ansible_ssh_user=ansible ansible_become_user=root ansible_become_pass=312624
+WS02 ansible_ssh_host=192.168.183.146 ansible_ssh_port=22 ansible_ssh_user=ansible ansible_become_user=root ansible_become_pass=123456
 
 [webservers:vars]
 ansible_python_interpreter=/usr/bin/python

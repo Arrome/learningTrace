@@ -27,7 +27,7 @@
   `rsync -avz /databack rsync://root@192.168.193.128/www`
   `rsync -avz rsync://root@192.168.193.128/www /databack`
 
-> 列远程机的文件列表： `rsync -v rsync://192.168.78.192/www‘
+> 列远程机的文件列表： `rsync -v rsync://192.168.78.192/www`
 
 服务器端
 -------

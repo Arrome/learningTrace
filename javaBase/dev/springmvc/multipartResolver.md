@@ -1,0 +1,3 @@
+# MultipartResolver
+
+处理上传请求，将普通的request包封装成MultipartHttpServletRequest

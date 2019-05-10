@@ -1,0 +1,3 @@
+# LocaleResolver
+
+解析视图需要两个参数：视图名（handler返回或RequestToViewNameTranslator解析的默认视图名），Locale（LocaleResolver从request解析出）

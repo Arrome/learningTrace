@@ -4,12 +4,17 @@
 
 源码安装方式：
 -----------
-1. 同时安装server和agent，并支持数据放入mysql数据库：<br>`./configure --enable-server --enable-agent --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl`
-2. 仅安装server，并支持数据放到mysql数据库：<br>`./configure --enable-server --with-mysql --with-net-snmp --with-libcurl`
-3. 仅安装proxy，并支持将数据放到mysql数据库中：<br>`./configure --profix=/usr --enable-proxy --with-net-snmp --with-mysql --with-ssh2`
-4. 如果仅安装agent：<br>`./configure --enable-agent`
+1. 同时安装server和agent，并支持数据放入mysql数据库：<br>
+`./configure --enable-server --enable-agent --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl`
+2. 仅安装server，并支持数据放到mysql数据库：<br>
+`./configure --enable-server --with-mysql --with-net-snmp --with-libcurl`
+3. 仅安装proxy，并支持将数据放到mysql数据库中：<br>
+`./configure --profix=/usr --enable-proxy --with-net-snmp --with-mysql --with-ssh2`
+4. 如果仅安装agent：<br>
+`./configure --enable-agent`
 
-5. 编译安装zabbix：<br>`make install`
+5. 编译安装zabbix：<br>
+`make install`
 
 rpm包安装zabbix
 ------------

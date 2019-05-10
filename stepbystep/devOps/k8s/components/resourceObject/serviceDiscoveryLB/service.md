@@ -15,13 +15,13 @@ Service类型：(根据访问来源：1.k8s集群内部程序Pod 2.k8s集群外�
 ClusterIP
 ----------
 pod间通过service访问：
-![](../../images/k8s_service_clusterPort.png)
+![](../../../images/k8s_service_clusterPort.png)
 
 NodePort
 --------
 k8s为每个Node上打开一个端口，作为主机端口映射（默认是：30000-32767）且每个Node的端口都一样，通过`NodeIP:NodePort`方式使得集群外部程序可以访问Service<br>
 访问路径：client -> nodeIP:nodePort -> ClusterIP:servicePort -> podIP:podPort<br>
-![](../../images/k8s_service_nodePort.png)
+![](../../../images/k8s_service_nodePort.png)
 
 externalName
 --------------

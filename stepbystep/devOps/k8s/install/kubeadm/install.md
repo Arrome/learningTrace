@@ -16,7 +16,8 @@
 `--pod-network-cidr=10.244.0.0/16`参数用于指定Pod网络范围，依赖使用的网络方案。此flannel作为网络插件,网段为flannel默认
 
 5. 安装flannel网络
-  `kubectl apply -f xxx.yaml`
+  `kubectl apply -f xxx.yaml`<br>
+  例如：`kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml`<br>
 
 添加node节点
 --------

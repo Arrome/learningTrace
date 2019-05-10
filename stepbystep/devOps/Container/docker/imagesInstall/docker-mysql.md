@@ -16,3 +16,6 @@
 -----------------
 1. mysql只能本地连接，不能远程连接：<br>
   为用户授权远程连接。(为了用户的安全，**系统默认的设置是不允许远程用户连接**，只能本地连接)
+
+2. `chown: cannot read directory '/var/lib/mysql/': Permission denied`
+docker run时加上`--privileged=true`
