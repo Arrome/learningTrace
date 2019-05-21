@@ -110,17 +110,6 @@
 **格式**：`HEALTHCHECK [options] CMD command`<br>
 检测容器是否有效<br>
 
-创建镜像
--------------
-**格式**：docker build[选项]路径：`docker build .`<br>
-
-  -t 指定镜像标签信息
-  -f 指定Dockerfile路径
-
-> 读取指定路径下(包括子目录)Dockerfile，并将该路径下所有内容发送给Docker服务端，由服务端创建镜像。<br>
-> **因此一般建议放置Dockerfile的目录为空目录**<br>
-> **可以通过 .dockerignore文件(每一行添加一条匹配模式) 来让Docker忽略路径下的目录和文件**<br>
-> json数组需要使用双引号。<br>
 
 shell格式和exec格式
 ---------------
