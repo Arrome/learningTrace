@@ -57,16 +57,20 @@
 > 运行时可替换环境变量
 
 #### ADD
-**格式**:`ADD <src> ... <dest>`或者`ADD <src>,... <dest>`
-> 复制指定的<src>到容器中的<dest>. <br>
-> * <src>可以是Dockerfile所在目录的一个相对路径(文件或目录)，
-  * 也可是一个URL；
-  * 还可以是一个tar文件(本地文件会自动解压为目录，url文件不会自动解压)
+**格式**:`ADD <src> ... <dest>`或者`ADD <src>,... <dest>`或者`ADD["src",..,"dest"]`
+> src为文件时，注意：dest 以`/`结尾被作为目录，否则被作为文件。src为目录时，dest也被作为目录<br>
+
+> src 可以是:
+* Dockerfile所在目录的一个相对路径(文件或目录),不包含目录本身，
+* 也可是一个URL（**不建议，建议curl，wget方式减少构建层数**）；
+* 还可以是一个tar文件(本地文件会自动解压为目录，url文件不会自动解压) <br>
+
 
 #### COPY
-**格式**：`COPY <src> ... <dest>`或者`COPY <src>,... <dest>`
-> 复制本地主机的<src>(为Dockerfile所在目录的相对路径，文件或目录.**不复制目录，只复制目录下，dest必须是目录，必须以/结尾**)到容器中的<dest>.目标路径不存在时，会自动创建
-> **当使用本地目录为源目录时，推荐使用COPY**
+**格式**：`COPY <src> ... <dest>`或者`COPY <src>,... <dest>`或者`COPY["src",..,"dest"]` <br>
+  **当使用本地目录为源目录时，推荐使用COPY**，可用在multistage构建中，没有ADD拷贝网络文件和解压压缩包的功能<br>
+> **不拷贝src当前目录，只复制目录下的文件或目录** <br>
+> **dest必须是目录，目标路径不存在时，会自动创建** <br>
 
 #### USER
 **格式**：`USER daemon`
@@ -74,14 +78,16 @@
 > **当服务不需要管理员权限时，可以通过该命令指定运行用户**例如：`RUN groupadd-r postgres&useradd-r-g postgres postgres`**临时获取管理员权限，可以使用gosu，不推荐sudo**
 
 #### WORKDIR
-**格式**：`WORKDIR/path/to/workdir`
+**格式**：`WORKDIR /path/to/workdir`
 > 为后续RUN、CMD、ENTRYPOINT、ADD、COPY 指令配置工作目录<br>
-> 可以使用多个WORKDIR指令，如果参数是相对路径，则会基于之前指令指定的路径
+> 可以使用多个WORKDIR指令，如果参数是相对路径，则会基于之前指令指定的路径，<br>
+> 运行后也是以workdir为根目录打开<br>
 > `docker run -w`覆盖设置的WORKDIR
 
 #### VOLUME
 **格式**：`VOLUME["/data/"]`或者`VOLUME /data/`
-镜像中创建一个挂载点目录，以挂载Docker host上的卷或者其他容器上的卷
+镜像中创建一个挂载点目录，以挂载Docker host上的卷或者其他容器上的卷<br>
+> 创建时就产生挂载点，自动挂载。`--volume-from`共享挂载卷和使用容器卷
 
 #### ONBUILD
 **格式**：`ONBUILD [INSTRUCTION]`
