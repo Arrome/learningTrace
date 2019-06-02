@@ -1,28 +1,17 @@
 # yarn
 
-resourceManager
------------
-一个纯粹的调度器，根据应用程序ApplicationMaster的资源请求严格限制系统的可用资源,在保证容量、公平性及服务等级（SLA）前提下，优化资源利用率。<br>
-##### Scheduler
-resourceManager的一个可插拔的调度器组件，根据不同调度算法：<br>
-* 负责运行中的各种应用分配资源（分配会受到容量、队列及其他因素的制约）。
-* 不负责应用程序的监控和状态跟踪，也不保证应用程序失败或者硬件失败的情况下对task的重启。
-
-NodeManager
---------------
-与每台机器对应的从属进程（slave），**管理该节点上的用户作业和工作流**：
-* 负责应用程序的Container生命周期管理(启动、杀死作业)
-* 监控本地可用资源使用情况（CPU、内存、磁盘、网络）
-* 报告给ResourceManager
-
-ApplicationManager
-----------------
-实际上是特定框架库的一个实例（应用框架相关代码转移到ApplicationManager，系统可以支持MapReduce、MPI、图计算等多种框架），Container身份运行，**每个用户作业的主进程，管理用户作业生命周期（包括动态增加或减少Container资源使用，管理执行流程（如），处理故障和计算偏差，执行本地优化）**<br>
-**与应用程序一一对应**<br>
-* 负责与Scheduler协商合适的Container，跟踪应用程序状态，监控他们进度(与nodeManager配合)
-* ApplicatonManager取走Container，并给NodeManager，NM利用相应的资源启动Container的任务进程。
-
-
-Container
+客户端资源请求
 ----------
-一种资源分配的形式，ResourceManager-scheduler分配资源的结果，为应用程序授予在特定主机上使用资源的权利
+1. 客户端通知RM，要提交一个application
+2. RM在应答中给出一个ApplicationID 以及 有助于客户端请求资源的集群容量信息
+3. 客户端使用Application Submission Context 发出响应，包含ApplicationID、用户名、队列以及启动ApplicationMaster所需要的信息<br>
+    Container Launch Context(CLC，资源需求CPU/内存、作业文件、安全令牌、节点上启动ApplicationMaster需要的其他信息)也会发给RM
+4. RM 收到后，会为ApplicationMaster调度一个可用的Container。（Container0必须请求其他Container）若无可用，必须等待。若有合适，联系相应的NodeManager启动ApplicationMaster。建立Application的RPC端口和用于跟踪的URL
+5. NM 启动 ApplicationMaster，并发送RM 注册请求。
+6. RM 响应关于集群最小最大容量信息
+7. ApplicationMaster 基于RM的可用资源报告，请求一定量的Container
+8. RM基于调度策略，尽可能最优的为ApplicationMaster分配Container资源，应答给ApplicationMaster
+
+-----------------------------------------
+
+1. 随着作业执行，ApplicationMaster将心跳（请求和释放Container）和进度信息通过心跳发给RM
