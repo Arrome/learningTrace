@@ -28,12 +28,12 @@
 cd scripts
 ../bin/schematool -initSchema -dbType mysql
 ```
-未初始化报错：`FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient`
+未初始化报错：`FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient`<br>
 4. 需要写hdfs日志文件，需要hdfs用户（参考yarn安装时用户设置）启动
 `./hive`
 
 5. hive交互下创建表结构，会在hdfs `/user/hive/warehouse`
 6. 创建文件拷贝到hdfs表目录下
 * 列分隔符(不可见字符)：`^A` (ctl+v+a)
-* 行分隔符(不可见字符): `\n` 
+* 行分隔符(不可见字符): `\n`
 7. hive交互下查询
