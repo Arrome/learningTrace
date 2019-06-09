@@ -38,3 +38,6 @@ pip安装方式:`pip install virtualenv`<br>
 
 1. `pip install XXX`（库若不在pypi,可离线安装）
 2. 源文件安装，下载安装包，`python setup.py install`
+
+
+`pip install -r requirement.txt`
