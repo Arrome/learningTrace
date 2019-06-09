@@ -10,14 +10,20 @@
   git方式安装pyenv工具：
   1. 预安装git
   2. 克隆仓库 `git clone https://github.com/yyuu/pyenv.git ~/.pyenv`
-  3. 配置环境变量,并激活
-  ```
-  export PATH=~/.pyenv/bin:$PATH
-  export PYENV_ROOT=~/.pyenv
-  eval "$(pyenv init -)"
-  ```
-  `pyenv install --list` 查看支持版本
-  `pyenv local xxx`
+  3. 配置 /etc/profile 环境变量,并激活
+```
+export PATH=~/.pyenv/bin:$PATH
+export PYENV_ROOT=~/.pyenv
+eval "$(pyenv init -)"
+```
+`pyenv install --list` 查看支持版本 <br>
+`pyenv local xxx` 会在当前目录下生成 .python-version 文件夹 <br>
+
+`pip freeze > requirements.txt` 执行后，再执行 pyenv install 查看具体位置 <br>
+`pip install -r requirements.txt`
+
+#####离线安装方式
+1. 在 .pyenv/cache 目录下添加离线下载的安装包
 
 virtualenv工具
 -------------

@@ -23,3 +23,6 @@ Problems
   或者 /etc/my.cnf文件增加`default-authentication-plugin=mysql_native_password`
 
 * **远程用户无法连接**：修改用户HOST：`localhost`-->远程IP或者`%`
+
+* `Underlying cause: java.sql.SQLException : Unknown system variable 'query_cache_size'`
+  解决：后期query_cache_size被删除，需要升级mysql        、

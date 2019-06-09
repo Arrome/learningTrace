@@ -1,5 +1,14 @@
 # 安装
 
+
+软件包套件
+------
+* openldap 服务端客户端必须用的库文件
+* openldap-clients 在服务端上使用，查看修改目录的命令行包
+* openldap-servers 启动服务和设置
+* openldap-servers-sql 支持sql模块
+* compat-openldap 兼容性库
+
 yum安装
 -------
 1. `yum -y install openldap openldap-*`

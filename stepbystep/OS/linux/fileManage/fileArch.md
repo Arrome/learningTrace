@@ -6,13 +6,16 @@
 ├── boot    存放内核引导配置文件
 ├── dev     存放设备文件
 ├── etc     存放系统配置文件
-    |——udev
-      |——rules.d
+    |—— udev
+      |—— rules.d
     |—— rc.d       开机启动文件
     |--rc.local    用户自定义自启动文件(一般为源码安装)
     |—— init.d     服务配置文件(一般为包安装)
     |—— ssh        SSH配置文件
     |--sysctl.conf 配置系统信息，内容全部对应于/proc/sys目录下子目录和文件。编辑后`sysctl -p`生效，`sysctl -w key=value`
+    |--nsswitch.conf  用于名称转换服务，系统验证用户身份所读取本地文件或远程验证服务器文件
+    |—— sysconfig
+      |-- authconfig 主要用于提供身份验证LDAP功能，配置文件用来跟踪LDAP身份认证机制是否启用
 ├── home    用户主目录
 ├── lib     动态共享库
 ├── lost+found  文件系统恢复时的恢复文件
