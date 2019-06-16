@@ -72,7 +72,7 @@ dc: company
 objectClass: top
 objectClass: domain
 
-dn: cn=manager ,dc=company,dc=com
+dn: cn=manager,dc=company,dc=com
 objectClass: organizationalRole
 cn: manager
 description: LDAP Manager

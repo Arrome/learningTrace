@@ -1,7 +1,5 @@
 # hdfs 配置
 
-配置信息
-------
 #####目录
 `dfs.namenode.name.dir` <br>
 `dfs.namenode.edits.dir` <br>
@@ -15,13 +13,49 @@
 `dfs.datanode.data.dir` <br>
 
 
+NameNode
+-------------
+#####host
+`dfs.namenode.rpc-address`
+`dfs.namenode.rpc-bind-host`
 
-#####绑定端口IP
-`dfs.namenode.rpc-address` 处理所有客户端请求的rpc地址 <br>
+`dfs.namenode.servicerpc-address`
+`dfs.namenode.servicerpc-bind-host`
 
-`dfs.namenode.http-address` 提供web页面访问地址 <br>
-`dfs.namenode.secondary.http-address`
-`dfs.namenode.secondary.https-address`
+`dfs.namenode.lifeline.rpc-address`
+`dfs.namenode.lifeline.rpc-bind-host`
+
+#####web
+`dfs.namenode.http-bind-host`
+`dfs.namenode.http-address=0.0.0.0:50070`
+
+`dfs.namenode.https-bind-host`
+`dfs.namenode.https-address=0.0.0.0:50470`
+
+
+
+secondarynamenode
+----------
+#####host
+
+#####web
+`dfs.namenode.secondary.http-address=0.0.0.0:50090`
+`dfs.namenode.secondary.https-address=0.0.0.0:50091`
+
+
+DataNode
+-----------
+`dfs.datanode.address=0.0.0.0:50010`
+`dfs.datanode.ipc.address=0.0.0.0:50020`
+
+#####webapp
+`dfs.datanode.http.address=0.0.0.0:50075`
+
+
+other
+--------
+`dfs.namenode.datanode.registration.ip-hostname-check=true` 默认使用hostname来访问，如果没有会报错解析不了，不能连接
+
 
 #####高可用
 `dfs.namenode.name.dir.restore` 默认false，设置为true，尝试恢复之前失败的dfs.namenode.name.dir目录，checkpoint时尝试 <br>
