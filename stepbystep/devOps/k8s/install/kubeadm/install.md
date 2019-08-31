@@ -8,7 +8,8 @@
 3. 准备
   * 关闭防火墙，或者确认6443 10250端口开放：`systemctl stop firewalld`<br>
   * 安装docker
-  * 关闭swap（性能考虑，交换减慢速度）`swapoff -a`
+  * 关闭swap（性能考虑，交换减慢速度）`swapoff -a` 或者 `sed -i 's/.*swap.*/#&/' /etc/fstab`
+  * 关闭SElinux `setenforce 0` 或者 `/etc/selinux/config`设置`SELINUX=disabled`
   * `echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables`
 
 4. 初始化集群<br>
