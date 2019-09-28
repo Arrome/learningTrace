@@ -20,9 +20,9 @@
   * [安装mysql镜像](imagesInstall/docker-mysql.md)
   * [安装zookeeper镜像](imagesInstall/docker-zookeeper.md)
 
-* [docker-compose](docker-compose/docker-compose.md)
+* [docker-compose](../docker-compose/docker-compose.md)
 
-* [本地镜像管理](localImagesManage/importExportOrSaveLoad.md)
+* [本地镜像管理](cli/importExportSaveLoad.md)
 
 * 问题记录
   * [未解决的问题](problems/unresolved.md)

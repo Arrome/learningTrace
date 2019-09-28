@@ -1,3 +1,11 @@
 # clear Container && runV
 
-符合OCI运行时规范的实现，为每个容器（Docker角度）或每个Pod（K8S角度）增加了一个独立的linux内核（不共享宿主机内核），使容器有**更好的隔离性，安全性**。
+整合clear Container 和 runV，支持不同平台的硬件（x86-64，arm等）<br>
+符合OCI（open Container Initiative）规范，兼容k8s的CRI（container Runtime Interface）接口规范。<br>
+
+
+亮点：
+解决传统容器共享内核的安全和隔离问题，每个容器运行在一个轻量级虚拟机中，使用单独的内核<br>
+
+
+Docker架构上，kata 替换 runc，当作docker的插件

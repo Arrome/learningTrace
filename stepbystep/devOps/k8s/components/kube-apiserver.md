@@ -9,7 +9,7 @@ apiserver仅接收JSON格式的资源定义<br>
 --authorization-mode=Node,RBAC
 --advertise-address=192.168.186.134
 --allow-privileged=true
---client-ca-file=/etc/kubernetes/pki/ca.crt  #提供认证文件，通过其进行认证
+--client-ca-file=/etc/kubernetes/pki/ca.crt  #提供认证文件（根证书文件），通过其进行认证
 --enable-admission-plugins=NodeRestriction
 --enable-bootstrap-token-auth=true
 --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt
@@ -30,6 +30,6 @@ apiserver仅接收JSON格式的资源定义<br>
 --secure-port=6443
 --service-account-key-file=/etc/kubernetes/pki/sa.pub
 --service-cluster-ip-range=10.96.0.0/12
---tls-cert-file=/etc/kubernetes/pki/apiserver.crt
---tls-private-key-file=/etc/kubernetes/pki/apiserver.key
+--tls-cert-file=/etc/kubernetes/pki/apiserver.crt  # 服务端认证证书
+--tls-private-key-file=/etc/kubernetes/pki/apiserver.key #服务端私钥
 ```

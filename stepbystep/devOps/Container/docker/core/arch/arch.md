@@ -1,5 +1,7 @@
 # Docker服务架构
 
+![../../images/arch.png]
+
 C/S架构
 -----------
 
