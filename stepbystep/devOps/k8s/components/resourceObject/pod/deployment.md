@@ -9,3 +9,7 @@
 * 挂起或者恢复一个Deployment
 
 > annotation记录更改历史，保存replicaSet，方便回滚
+
+回滚命令
+----
+`kubectl rollout history`

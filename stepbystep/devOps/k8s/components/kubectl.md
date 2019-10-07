@@ -10,3 +10,20 @@ kubectl访问集群配置文件：
 problem
 --------
 * `kubectl get nodes`发现node是notReady，可能是进程kubelet有问题，`journalctl -f -u kubelet`或者查看进程`systemctl status kubelet`
+
+
+命令及资源对象自动补全：<br>
+linux:<br>
+```
+# yum install -y bash-completion
+# locate bash_completion
+/usr/share/bash-completion/bash_completion
+# source /usr/share/bash-completion/bash_completion
+# source <(kubectl completion bash)
+```
+mac:<br>
+```
+brew install bash-completion
+source $(brew --prefix)/etc/bash_completion
+source <(kubectl completion bash)
+```
