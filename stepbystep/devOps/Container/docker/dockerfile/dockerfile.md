@@ -3,16 +3,41 @@
 > 不区分大小写，但约定指令使用大写用于区分<br>
 > 支持以 `#` 开头的注释行<br>
 
+#### ARG
+**格式**：`ARG <name>[=<default value>]`
+> 唯一一个可以在 FROM 之前的指令，必须先指定才能使用`--build-arg`
+> 含义：设置变量，docker build创建镜像时使用,`--build-arg <key>=<value>`指定参数，<br>
+> 也可定义时指定参数默认值，当创建镜像时没有指定参数值，将会使用默认值
+
 基础镜像信息
 ----------
 #### FROM
-**格式**： `FROM <image>`或者`FROM <image>:<tag>`或者`FROM <registry>@hashId`<br>
+**格式**： `FROM [--platform=<platform>] <image> [AS <name>]`或者`FROM [--platform=<platform>] <image>:<tag> [AS <name>]`或者`FROM [--platform=<platform>] <registry>@hashId [AS <name>]`<br>
 **注** ：第一条指令必须为FROM指令。若同一个Dockerfile中创建多个镜像时，可以使用多个FROM指令(每个镜像一次)
+>* `[AS <name>]` 分步构建，可以在下一个stage 使用 `COPY --from=<name|index>`
+>* `[--platform=<platform>]` 多平台引入使用`linux/amd64, linux/arm64, or windows/amd64` 默认：当前系统
+
+>预定义ARG：
+>*   HTTP_PROXY
+>*   http_proxy
+>*   HTTPS_PROXY
+>*   https_proxy
+>*   FTP_PROXY
+>*   ftp_proxy
+>*   NO_PROXY
+>*   no_proxy
 
 维护者信息
 ---------
-#### MAINTAINER
+#### MAINTAINER（最新版本已经被弃用）
 **格式**：`MAINTAINER <name>`
+
+#### LABEL
+**格式**：`LABEL <key>=<value> <key>=<value> ...`
+作用：元数据信息添加到镜像，可以替代MAITAINER（LABEL maintainer=xxx）
+> 键值对存在空格，使用引号或反斜杠转义
+> 可以有多个LABEL(元数据)，但不建议。建议一行。
+> **注意**：LABEL会继承基础镜像的LABEL，如key相同则value覆盖
 
 镜像操作指令
 ----------
@@ -98,15 +123,8 @@
 #### SHELL
 
 
-#### LABEL
-**格式**：`LABEL <key>=<value> <key>=<value> ...`
-> 可以有多个LABEL(元数据)，但不建议。建议一行。
-> **注意**：LABEL会继承基础镜像的LABEL，如key相同则value覆盖
 
-#### ARG
-**格式**：`ARG <name>[=<default value>]`
-> 含义：设置变量，docker build创建镜像时使用,`--build-arg <key>=<value>`指定参数，<br>
-> 也可定义时指定参数默认值，当创建镜像时没有指定参数值，将会使用默认值
+
 
 #### STOPSIGNAL
 **格式**：`STOPSIGNAL signal`

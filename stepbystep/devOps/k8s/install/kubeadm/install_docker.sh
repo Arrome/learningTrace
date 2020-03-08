@@ -10,6 +10,7 @@ usage(){
 
 function set_docker_repo() {
     rm -rf /etc/docker/daemon.json
+    mkdir -p /etc/docker
     touch /etc/docker/daemon.json
     cat <<EOF > /etc/docker/daemon.json
 {"registry-mirrors": ["https://registry.docker-cn.com","https://w5e0yetj.mirror.aliyuncs.com"],"live-restore": true}

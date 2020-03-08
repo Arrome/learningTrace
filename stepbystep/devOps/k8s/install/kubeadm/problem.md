@@ -32,3 +32,6 @@ docker tag docker.io/coredns/coredns:1.1.3  k8s.gcr.io/coredns:1.1.3
 问题：安装中报错`kubelet.go:2248] node "master" not found`
 分析：具体原因未知
 解决：关闭SELINUX：`setenforce 0`
+
+
+问题：Failed to initialize CSINodeInfo: error updating CSINode annotation: timed out waiting for the condition; caused by: the server could not find the requested resource

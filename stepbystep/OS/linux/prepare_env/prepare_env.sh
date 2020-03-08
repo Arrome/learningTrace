@@ -34,6 +34,16 @@ EOF
 function install_base_tools() {
     exec_command "yum install -y wget"
     exec_command "yum install -y net-tools"
+    exec_command "yum install -y java-1.8.0-openjdk-1.8.0.232.b09-0.el7_7.x86_64 java-1.8.0-openjdk-devel-1.8.0.232.b09-0.el7_7.x86_64"
+}
+
+function set_java_env() {
+    if [ ! -f /etc/profile.d/java.sh ];then
+      echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk" >> /etc/profile.d/java.sh
+    fi
+    source /etc/profile.d/java.sh
+    echo "export PATH=$PATH:$JAVA_HOME/bin" >> /etc/profile
+    source /etc/profile
 }
 
 #set_network
@@ -41,3 +51,4 @@ close_firewalld
 close_swap
 set_yum_repo
 install_base_tools
+set_java_env
