@@ -18,9 +18,16 @@
 核心：单线程，独占式垃圾回收，并行能力差的计算机，性能更好表现
 特点：垃圾回收时，Java程序所有线程都要暂停，等待垃圾回收完成。（STW）
 
+`-XX:+UseSerialGC` 指定新生代、老年代都使用串行收集器。client模式下，默认垃圾收集器
+`-XX:SurvivorRatio` 设置eden区和survivior区大小的比例
+`-XX:PretenureSizeThreshold` 设置大对象直接进入老年代的阈值
+`-XX:MaxTenuringThreshold` 设置对象进入老年代的年龄的最大值
+
 ###ParNew回收器
 场景：新生代
 特点：简单将串行收集器多线程化，多线程，独占式同时进行回收
+
+`-XX:+UseParNewGC` 新生代使用ParNew回收器，老年代使用串行收集器
 
 ###ParallelGC 并行回收器
 场景：新生代
@@ -30,4 +37,25 @@
 场景：老年代
 特点：标记压缩算法
 
-###CMS 回收器
+###CMS(concurrent mark sweep) 并发标记清除 回收器
+特点：多线程并行回收。关注系统停顿时间，它使用标记清除算法
+过程：初始标记（STW 标记根对象）-》并发标记（标记所有对象）——》预清理（清理前准备及控制停顿时间）
+-》重新标记（STW 修正并发标记数据）——》 并发清理（清理垃圾）-》并发重置（初始化CMS数据结构和数据，为下次垃圾回收做准备）
+默认启动并发线程数是`（ParallelGCThreads + 3）/ 4` ParallelGCThreads表示GC并行时使用的线程数量。
+CMS回收器，如果需要回收Perm区，默认情况要触发一次FullGC。必须打开`-XX:+CMSClassUnloadingEnabled`开关
+
+`-XX:+UseConcMarkSweepGC` 新生代使用并行收集器，老年代使用CMS+串行收集器
+`-XX:ParallelCMSThreads` 设定CMS线程数量
+`-XX:CMSInitiatingOccupancyFraction` 
+`-XX:+UseCMSCompactAtFullCollection`
+`-XX:CMSFullGCsBeforeCompaction`
+`-XX:+CMSClassUnloadingEnabled`
+`-XX:CMSInitatingPermOccupancyFraction`
+`-XX:UseCMSInitiatingOccupancyOnly`
+`-XX:+CMSIncrementalMode`
+
+###G1 回收器
+JDK7 引入，分代垃圾回收器（分区算法），区分年轻代老年代，有eden区和survivor区
+`-XX:+UseG1GC` 打开G1收集器
+`-XX:MaxGCPauseMillis` 指定目标最大停顿时间
+`-XX:ParallelGCThreads` 并行回收时，GC工作线程数量

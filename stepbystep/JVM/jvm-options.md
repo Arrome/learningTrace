@@ -34,8 +34,8 @@
 `-Xss` 线程栈大小
 
 ### GC 垃圾收集器
-`-XX:+UseSerialGC` 指定新生代、老年代都使用串行收集器。client模式下，默认垃圾收集器
-`-XX:+UseParNewGC` 新生代使用ParNew回收器，老年代使用串行收集器
+
+
 `-XX:+UseParallelGC` 新生代使用ParallelGC，老年代使用串行收集器
 `-XX:+UseConcMarkSweepGC` 新生代使用ParNew回收器，老年代使用CMS
     `-XX:ParallelGCThreads` 最好CPU数量相当，避免过多线程数，影响垃圾收集性能。
@@ -44,6 +44,8 @@
 `-XX:+UseParallelOldGC` 新生代使用ParallelGC，老年代使用ParallelOldGC
     `-XX:MaxGCPauseMillis` 最大垃圾收集停顿时间。
     `-XX:GCTimeRatio` 吞吐量大小（0-100）。系统将花费不超过1/(1+n)的时间用于垃圾收集。默认n=99
+
+
 
 ### 跟踪类加载卸载(动态代理 AOP 等隐蔽类)
 `-verbose:class`
