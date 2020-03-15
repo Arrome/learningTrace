@@ -1,4 +1,4 @@
-# pidstat
+# pidstat 进程性能分析工具
 
 pidstat
 -------
